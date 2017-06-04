@@ -4,6 +4,7 @@ import sample.veiculos.ModeloVeiculo;
 import sample.veiculos.Veiculo;
 import sample.comercio.VeiculosDisponiveis;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
 
@@ -13,10 +14,24 @@ import java.util.*;
 public class Sistema {
     private static Map<String, Veiculo> veiculosAVenda = new HashMap<String, Veiculo>();
     private static Map<Integer,ModeloVeiculo> modelos = new HashMap<Integer, ModeloVeiculo>();
-    private static PrintStream console = System.out;
-    private static Scanner reader = new Scanner(System.in);
+    public static final PrintStream console = System.out;
+    public static final Scanner reader = new Scanner(System.in);
 
     private Sistema(){}
+
+    public static void limpaConsole(){
+        //Clears Screen in java
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ex) {
+
+        }
+    }
+
+
 
     public static ModeloVeiculo addNovoModelo(){
         ModeloVeiculo novoModelo = new ModeloVeiculo();
@@ -60,6 +75,22 @@ public class Sistema {
         console.println(message);
     }
 
+    public static void listVeiculos(){
+        if (veiculosAVenda.isEmpty()){
+            return;
+        }
+
+
+        for (Map.Entry<String, Veiculo> entry : veiculosAVenda.entrySet()) {
+            showVeiculo(entry.getValue());
+            console.println("===================================");
+        }
+    }
+
+    public static void showVeiculo(Veiculo veiculo){
+        //todo
+    }
+
     public static ModeloVeiculo getModeloPeloUsuario(){
         if(modelos.isEmpty()){
             console.println("Nao foi encontrado um modelo, cadastre um novo.");
@@ -82,6 +113,8 @@ public class Sistema {
     }
 
     public static void addNovoVeiculo(){
+        limpaConsole();
+
         Veiculo novoModelo;
         int choice = 0;
         VeiculosDisponiveis[] opcoesDisponiveis = VeiculosDisponiveis.values();
@@ -102,9 +135,28 @@ public class Sistema {
 
         try{
             novoModelo = opcoesDisponiveis[count - 1].getInstance();
+
+            console.print("Placa: ");
+            novoModelo.setNumeroPlaca(reader.next());
+
+            console.print("Valor do veiculo: ");
+            novoModelo.setValorDoVeiculo(reader.nextInt());
+
+            //console.print("Ano de fabricacao");
+            //novoModelo.setAnoFabricacao(reader.nex)
+
+            //console.print("Quatidade de acentos");
+
+            console.print("Cilindradas: ");
+            novoModelo.setQuilometragem(reader.nextInt());
+
+            novoModelo.setModelo(getModeloPeloUsuario());
+
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
 
+    public static void venderVeiculo() {
     }
 }
