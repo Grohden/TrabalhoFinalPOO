@@ -19,9 +19,8 @@ public class Carro extends Veiculo implements VeiculoComercializavel {
                 .setQuantiadePortas(4);
 
         this    .setAnoFabricacao(ano)
-	        .setAnoFabricacao(Calendar.getInstance())
 	        .setNumeroPlaca("BXB2")
-                .setMarca(Marca.BWM)
+	        .setMarca(Marca.BWM)
 	        .setModelo(modelo);
     }
 

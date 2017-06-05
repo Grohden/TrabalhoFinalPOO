@@ -196,7 +196,7 @@ public class Sistema {
 		
 		
         try{
-	        newModel = avaliableOptions[count - 1].getInstance();
+	        newModel = avaliableOptions[choice - 1].getInstance();
 	
 	        System.out.print("Placa: ");
 	        newModel.setNumeroPlaca(getReader().next());
