@@ -108,7 +108,7 @@ public class Sistema {
 	{
 		String message = String.format(
 			"%s - Modelo %s ano %d, da marca %s, placa %s, quilometragem %d, custando %d",
-			veiculo.getClass().getName(),
+			veiculo.getClass().getSimpleName(),
 			veiculo.getModelo().getNome(),
 			veiculo.getAnoFabricacao().get(Calendar.YEAR),
 			veiculo.getMarca(),
@@ -128,6 +128,7 @@ public class Sistema {
 		}
 		
 		listModelsToUser();
+		
 		System.out.print("Digite o numero do modelo:");
 		int modelNumber = getReader().nextInt();
 		
@@ -190,6 +191,7 @@ public class Sistema {
 			System.out.println(count + 1 + " - " + VeiculosDisponiveis.values()[count]);
 		}
 		
+		choice = getReader().nextInt();
 		choice = assureChoice(1, avaliableOptions.length, choice);
 		
 		
@@ -214,7 +216,7 @@ public class Sistema {
 	
 	        vehiclesOnStore.put(newModel.getNumeroPlaca(), newModel);
 	
-	        System.out.print("Veiculo adicionado com sucesso");
+	        System.out.println("Veiculo adicionado com sucesso");
 	
         } catch (Exception e){
             e.printStackTrace();

@@ -59,6 +59,7 @@ public class LojaDeVeiculos {
 					break;
 			}
 			
+			Sistema.clearConsole();
 			choice = getUserChoiceForMainMenu();
 		}
 		
