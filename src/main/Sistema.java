@@ -1,7 +1,7 @@
 package main;
 
 import java.io.IOException;
-import java.io.PrintStream;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,15 +10,21 @@ import main.veiculos.ModeloVeiculo;
 import main.veiculos.Veiculo;
 
 public class Sistema {
-    private static Map<String, Veiculo> veiculosAVenda = new HashMap<String, Veiculo>();
-    private static Map<Integer,ModeloVeiculo> modelos = new HashMap<Integer, ModeloVeiculo>();
-    public static final PrintStream console = System.out;
-    public static final Scanner reader = new Scanner(System.in);
-
-    private Sistema(){}
-
-    public static void limpaConsole(){
-        //Clears Screen in java
+	
+	private static Map<String, Veiculo> vehiclesOnStore = new HashMap<>();
+	private static Map<Integer, ModeloVeiculo> vehiclesModel = new HashMap<>();
+	
+	//So acessos estaticos ao sistema. (poderia ser tambem ou um singleton)
+	private Sistema(){}
+	
+	public static Scanner getReader()
+	{
+		return new Scanner(System.in);
+	}
+	
+	public static void clearConsole()
+	{
+		//Clears Screen in java
         try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -28,133 +34,165 @@ public class Sistema {
 
         }
     }
-
-
-
-    public static ModeloVeiculo addNovoModelo(){
-        ModeloVeiculo novoModelo = new ModeloVeiculo();
-
-        console.print("Nome: ");
-        novoModelo.setNome(reader.next());
-
-        console.print("Informe quantas portas o modelo vai ter: ");
-        novoModelo.setQuantiadePortas(reader.nextInt());
-
-        console.print("Informe quantas marchas: ");
-        novoModelo.setNumeroDeMarchas(reader.nextInt());
-
-        console.print("Informe quantidade de cilindradas: ");
-        novoModelo.setCilindradas(reader.nextInt());
-
-        modelos.put(modelos.size(), novoModelo);
+	
+	
+	/**
+	 * Adiciona um novo modelo de veiculo
+	 */
+	public static ModeloVeiculo addNewVehicleModel()
+	{
+		ModeloVeiculo novoModelo = new ModeloVeiculo();
+		
+		System.out.print("Nome: ");
+		novoModelo.setNome(getReader().next());
+		
+		System.out.print("Informe quantas portas o modelo vai ter: ");
+		int qt = getReader().nextInt();
+		novoModelo.setQuantiadePortas(qt);
+		
+		System.out.print("Informe quantas marchas: ");
+		novoModelo.setNumeroDeMarchas(getReader().nextInt());
+		
+		System.out.print("Informe quantidade de cilindradas: ");
+		novoModelo.setCilindradas(getReader().nextInt());
+		
+		vehiclesModel.put(vehiclesModel.size(), novoModelo);
 
         return novoModelo;
     }
-
-    public static void listModelos(){
-        if (modelos.isEmpty()){
-            return;
+	
+	public static void listModelsToUser()
+	{
+		if (vehiclesModel.isEmpty())
+		{
+			return;
         }
-
-        for (Map.Entry<Integer, ModeloVeiculo> entry : modelos.entrySet()) {
-            showModelo(entry.getValue());
-            console.println("===================================");
-        }
+		
+		for (Map.Entry<Integer, ModeloVeiculo> entry : vehiclesModel.entrySet())
+		{
+			showModelToUser(entry.getValue());
+			System.out.println("===================================");
+		}
     }
-
-    public static void showModelo(ModeloVeiculo modelo){
-        String message = String.format(
+	
+	public static void showModelToUser(ModeloVeiculo modelo)
+	{
+		String message = String.format(
                 "Modelo %s, com %d portas, %d marchas e %d cilindradas",
                 modelo.getNome(),
                 modelo.getQuantiadePortas(),
                 modelo.getNumeroDeMarchas(),
                 modelo.getCilindradas()
         );
-        console.println(message);
-    }
-
-    public static void listVeiculos(){
-        if (veiculosAVenda.isEmpty()){
-            return;
+		System.out.println(message);
+	}
+	
+	public static void listVehiclesToUser()
+	{
+		if (vehiclesOnStore.isEmpty())
+		{
+			return;
         }
-
-
-        for (Map.Entry<String, Veiculo> entry : veiculosAVenda.entrySet()) {
-            showVeiculo(entry.getValue());
-            console.println("===================================");
-        }
+		
+		for (Map.Entry<String, Veiculo> entry : vehiclesOnStore.entrySet())
+		{
+			showVehicleToUser(entry.getValue());
+			System.out.println("===================================");
+		}
     }
-
-    public static void showVeiculo(Veiculo veiculo){
-        //todo
-    }
-
-    public static ModeloVeiculo getModeloPeloUsuario(){
-        if(modelos.isEmpty()){
-            console.println("Nao foi encontrado um modelo, cadastre um novo.");
-            return addNovoModelo();
-        }
-
-        listModelos();
-        console.print("Digite o numero do modelo:");
-        int nrModelo = reader.nextInt();
-
-        while(nrModelo > modelos.size() && nrModelo < 1){
-            console.print("Numero invalido, digite novamente: ");
-            nrModelo = reader.nextInt();
-        }
-        ModeloVeiculo escolhido = modelos.get(nrModelo - 1);
-
-        console.println("Modelo escolhido: " + escolhido.getNome());
-
-        return escolhido;
-    }
-
-    public static void addNovoVeiculo(){
-        limpaConsole();
-
-        Veiculo novoModelo;
-        int choice = 0;
-        VeiculosDisponiveis[] opcoesDisponiveis = VeiculosDisponiveis.values();
-
-        console.println("Qual o tipo do veiculo? ");
+	
+	public static void showVehicleToUser(Veiculo veiculo)
+	{
+		String message = String.format(
+			"%s - Modelo %s ano %d, da marca %s, placa %s, quilometragem %d, custando %d",
+			veiculo.getClass().getName(),
+			veiculo.getModelo().getNome(),
+			veiculo.getAnoFabricacao().get(Calendar.YEAR),
+			veiculo.getMarca(),
+			veiculo.getNumeroPlaca(),
+			veiculo.getQuilometragem(),
+			veiculo.getValorDoVeiculo()
+		);
+		System.out.println(message);
+	}
+	
+	public static ModeloVeiculo getModelByUser()
+	{
+		if (vehiclesModel.isEmpty())
+		{
+			System.out.println("Nao foi encontrado um modelo, cadastre um novo.");
+			return addNewVehicleModel();
+		}
+		
+		listModelsToUser();
+		System.out.print("Digite o numero do modelo:");
+		int modelNumber = getReader().nextInt();
+		
+		while (modelNumber > vehiclesModel.size() && modelNumber < 1)
+		{
+			System.out.print("Numero invalido, digite novamente: ");
+			modelNumber = getReader().nextInt();
+		}
+		
+		ModeloVeiculo chosen = vehiclesModel.get(modelNumber - 1);
+		
+		System.out.println("Modelo escolhido: " + chosen.getNome());
+		
+		return chosen;
+	}
+	
+	/**
+	 * Adiciona um novo veiculo
+	 */
+	public static void addNewVehicle()
+	{
+		clearConsole();
+		
+		Veiculo newModel;
+		int choice = 0;
+		VeiculosDisponiveis[] avaliableOptions = VeiculosDisponiveis.values();
+		
+		System.out.println("Qual o tipo do veiculo? ");
 
         int count = -1;
-        while(count++ < opcoesDisponiveis.length - 1){
-            console.println(count + 1 + " - " + VeiculosDisponiveis.values()[count]);
-        }
-
-        choice = reader.nextInt();
-
-        while(choice < 1 && choice > opcoesDisponiveis.length){
-            console.println("Opcao invalida, digite novamente: ");
-            choice = reader.nextInt();
-        }
+		while (count++ < avaliableOptions.length - 1)
+		{
+			System.out.println(count + 1 + " - " + VeiculosDisponiveis.values()[count]);
+		}
+		
+		choice = getReader().nextInt();
+		
+		while (choice < 1 && choice > avaliableOptions.length)
+		{
+			System.out.println("Opcao invalida, digite novamente: ");
+			choice = getReader().nextInt();
+		}
 
         try{
-            novoModelo = opcoesDisponiveis[count - 1].getInstance();
-
-            console.print("Placa: ");
-            novoModelo.setNumeroPlaca(reader.next());
-
-            console.print("Valor do veiculo: ");
-            novoModelo.setValorDoVeiculo(reader.nextInt());
-
-            //console.print("Ano de fabricacao");
-            //novoModelo.setAnoFabricacao(reader.nex)
-
-            //console.print("Quatidade de acentos");
-
-            console.print("Cilindradas: ");
-            novoModelo.setQuilometragem(reader.nextInt());
-
-            novoModelo.setModelo(getModeloPeloUsuario());
+	        newModel = avaliableOptions[count - 1].getInstance();
+	
+	        System.out.print("Placa: ");
+	        newModel.setNumeroPlaca(getReader().next());
+	
+	        System.out.print("Valor do veiculo: ");
+	        newModel.setValorDoVeiculo(getReader().nextInt());
+	
+	        //System.out.print("Ano de fabricacao");
+	        //novoModelo.setAnoFabricacao(reader.nex)
+	
+	        //System.out.print("Quatidade de acentos");
+	
+	        System.out.print("Cilindradas: ");
+	        newModel.setQuilometragem(getReader().nextInt());
+	
+	        newModel.setModelo(getModelByUser());
 
         } catch (Exception e){
             e.printStackTrace();
         }
     }
-
-    public static void venderVeiculo() {
-    }
+	
+	public static void sellVehicle()
+	{
+	}
 }
