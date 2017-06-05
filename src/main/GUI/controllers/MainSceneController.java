@@ -1,14 +1,11 @@
-package sample.GUI.controllers;
+package main.GUI.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import sample.GUI.scenes.ScenesPaths;
-import sample.GUI.GUIPrototype;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import main.GUI.GUIPrototype;
+import main.GUI.scenes.ScenesPaths;
 
 public class MainSceneController extends BasicController {
 

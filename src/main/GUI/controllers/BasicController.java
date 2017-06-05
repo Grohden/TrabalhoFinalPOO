@@ -1,14 +1,10 @@
-package sample.GUI.controllers;
-
-import javafx.fxml.FXML;
-import sample.GUI.GUIPrototype;
+package main.GUI.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import main.GUI.GUIPrototype;
 
-/**
- * Created by gabri on 04/06/2017.
- */
 public abstract class BasicController  {
     // location and resources will be automatically injected by the FXML loader
     @FXML

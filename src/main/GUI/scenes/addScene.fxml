@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-
-<AnchorPane prefHeight="470.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.controllers.AddSceneController">
+<AnchorPane prefHeight="470.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/8.0.112"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.GUI.controllers.AddSceneController">
    <children>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="390.0" mnemonicParsing="false" onAction="#salvarVeiculo" prefHeight="39.0" prefWidth="232.0" text="Salvar" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" />
       <GridPane alignment="TOP_CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="411.0" vgap="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">

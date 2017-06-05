@@ -1,15 +1,13 @@
-package sample.GUI;
+package main.GUI;
 
+import java.io.IOException;
+import java.util.Stack;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.GUI.scenes.ScenesPaths;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.Stack;
+import main.GUI.scenes.ScenesPaths;
 
 /**
  * Created by gabri on 04/06/2017.

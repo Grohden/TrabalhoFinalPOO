@@ -1,10 +1,7 @@
-package sample.veiculos;
+package main.veiculos;
 
 import java.util.Calendar;
 
-/**
- * Created by Gabriel on 03/06/2017.
- */
 public abstract class Veiculo {
     private Calendar anoFabricacao;
     private String numeroPlaca;

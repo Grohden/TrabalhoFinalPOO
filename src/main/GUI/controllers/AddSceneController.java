@@ -1,22 +1,18 @@
-package sample.GUI.controllers;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import sample.veiculos.Carro;
-import sample.veiculos.Veiculo;
+package main.GUI.controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import main.veiculos.Carro;
+import main.veiculos.Veiculo;
 
-/**
- * Created by Gabriel on 03/06/2017.
- */
 public class AddSceneController extends BasicController {
 
 

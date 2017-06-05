@@ -1,16 +1,14 @@
-package sample;
-
-import sample.veiculos.ModeloVeiculo;
-import sample.veiculos.Veiculo;
-import sample.comercio.VeiculosDisponiveis;
+package main;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import main.comercio.VeiculosDisponiveis;
+import main.veiculos.ModeloVeiculo;
+import main.veiculos.Veiculo;
 
-/**
- * Created by gabri on 03/06/2017.
- */
 public class Sistema {
     private static Map<String, Veiculo> veiculosAVenda = new HashMap<String, Veiculo>();
     private static Map<Integer,ModeloVeiculo> modelos = new HashMap<Integer, ModeloVeiculo>();

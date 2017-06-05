@@ -1,13 +1,10 @@
-package sample.comercio;
+package main.comercio;
 
-import sample.veiculos.Carro;
-import sample.veiculos.Moto;
-import sample.veiculos.Onibus;
-import sample.veiculos.Veiculo;
+import main.veiculos.Carro;
+import main.veiculos.Moto;
+import main.veiculos.Onibus;
+import main.veiculos.Veiculo;
 
-/**
- * Created by gabri on 04/06/2017.
- */
 public enum VeiculosDisponiveis {
     CARRO(Carro.class),MOTO(Moto.class),ONIBUS(Onibus.class);
 

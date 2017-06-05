@@ -1,7 +1,5 @@
-package sample.veiculos;
+package main.veiculos;
 
-/**
- Gabriel */
 public class ModeloVeiculo {
     private String nome;
     private int quantiadePortas;
