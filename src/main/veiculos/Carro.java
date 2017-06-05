@@ -21,9 +21,7 @@ public class Carro extends Veiculo implements VeiculoComercializavel {
         this    .setAnoFabricacao(ano)
                 .setNumeroPlaca("BXB2")
                 .setMarca(Marca.BWM)
-                .setModelo(modelo)
-                .setQuilometragem(0)
-                .setValorDoVeiculo(2000);
+	        .setModelo(modelo);
     }
 
     @Override

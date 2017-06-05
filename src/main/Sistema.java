@@ -56,7 +56,10 @@ public class Sistema {
 		System.out.print("Informe quantidade de cilindradas: ");
 		novoModelo.setCilindradas(getReader().nextInt());
 		
+		//Rever para a retirada, o modelo devia ser listado e procurado por nome
 		vehiclesModel.put(vehiclesModel.size(), novoModelo);
+		
+		System.out.println("Modelo " + novoModelo.getNome() + " adicionado com sucesso");
 
         return novoModelo;
     }
@@ -142,6 +145,33 @@ public class Sistema {
 	}
 	
 	/**
+	 * Garante que a escolha do usuario vai estar entre um range de numeros
+	 *
+	 * @param invalidMessage mensagem para quando o usuario errar
+	 * @param minChoice numero minimo
+	 * @param maxChoice numero maximo
+	 * @param actualChoice escolha atual
+	 */
+	private static int assureChoice(String invalidMessage, int minChoice, int maxChoice,
+		int actualChoice)
+	{
+		while (actualChoice < minChoice && actualChoice > maxChoice)
+		{
+			System.out.println(invalidMessage);
+			actualChoice = getReader().nextInt();
+		}
+		
+		return actualChoice;
+	}
+	
+	private static int assureChoice(int minChoice, int maxChoice, int actualChoice)
+	{
+		return assureChoice("Opcao invalida, digite novamente: ", minChoice, maxChoice,
+			actualChoice);
+	}
+	
+	
+	/**
 	 * Adiciona um novo veiculo
 	 */
 	public static void addNewVehicle()
@@ -149,8 +179,8 @@ public class Sistema {
 		clearConsole();
 		
 		Veiculo newModel;
-		int choice = 0;
 		VeiculosDisponiveis[] avaliableOptions = VeiculosDisponiveis.values();
+		int choice = 0;
 		
 		System.out.println("Qual o tipo do veiculo? ");
 
@@ -160,14 +190,9 @@ public class Sistema {
 			System.out.println(count + 1 + " - " + VeiculosDisponiveis.values()[count]);
 		}
 		
-		choice = getReader().nextInt();
+		choice = assureChoice(1, avaliableOptions.length, choice);
 		
-		while (choice < 1 && choice > avaliableOptions.length)
-		{
-			System.out.println("Opcao invalida, digite novamente: ");
-			choice = getReader().nextInt();
-		}
-
+		
         try{
 	        newModel = avaliableOptions[count - 1].getInstance();
 	
@@ -186,7 +211,11 @@ public class Sistema {
 	        newModel.setQuilometragem(getReader().nextInt());
 	
 	        newModel.setModelo(getModelByUser());
-
+	
+	        vehiclesOnStore.put(newModel.getNumeroPlaca(), newModel);
+	
+	        System.out.print("Veiculo adicionado com sucesso");
+	
         } catch (Exception e){
             e.printStackTrace();
         }
