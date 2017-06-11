@@ -1,14 +1,17 @@
 package main.veiculos;
 
+import main.Sistema;
+
 import java.util.Calendar;
+import java.util.Scanner;
 
 /**
+ * Classe base para veiculos
  * @author Gabriel Rohden
  * @version 0.2
- *          Classe base para veiculos
  * @since 10/06/2017
  */
-public abstract class Veiculo {
+public abstract class Veiculo extends VeiculoAdicionavelPorConsole {
     private Calendar anoFabricacao;
     private String numeroPlaca;
     private long valorDoVeiculo;
@@ -107,7 +110,7 @@ public abstract class Veiculo {
     }
 
     /**
-     * @return o nomero da placa registrado
+     * @return o numero da placa registrado
      */
     public String getNumeroPlaca() {
         return numeroPlaca;
@@ -134,6 +137,4 @@ public abstract class Veiculo {
     public long getValorDoVeiculo() {
         return valorDoVeiculo;
     }
-
-
 }

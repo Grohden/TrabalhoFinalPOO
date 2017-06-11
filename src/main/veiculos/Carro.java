@@ -2,7 +2,7 @@ package main.veiculos;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import main.comercio.VeiculoComercializavel;
+import main.veiculos.comercio.VeiculoComercializavel;
 
 /**
  * Created by gabri on 03/06/2017.

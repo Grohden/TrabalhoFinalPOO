@@ -21,22 +21,15 @@ public class LojaDeVeiculos {
 		System.out.println("5 - Sair");
 		
 		System.out.print("Escolha uma opcao: ");
-		int choice = Sistema.getReader().nextInt();
-		
-		while (choice < 1 || choice > 5)
-		{
-			System.out.print("Opcao invalida, digite novamente: ");
-			choice = Sistema.getReader().nextInt();
-		}
-		
-		return choice;
+
+		return Utils.assureChoice(1,5);
 	}
 	
 	public static void mainMenu(boolean clearConsole)
 	{
 		if (clearConsole)
 		{
-			Sistema.clearConsole();
+			Utils.clearConsole();
 		}
 		
 		int choice = getUserChoiceForMainMenu();
@@ -59,7 +52,7 @@ public class LojaDeVeiculos {
 					break;
 			}
 			
-			Sistema.clearConsole();
+			Utils.clearConsole();
 			choice = getUserChoiceForMainMenu();
 		}
 		

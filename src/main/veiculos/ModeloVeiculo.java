@@ -1,6 +1,6 @@
 package main.veiculos;
 
-public class ModeloVeiculo {
+public class ModeloVeiculo extends ModeloAdicionavelPorConsole{
     private String nome;
     private int quantiadePortas;
     private int numeroDeMarchas;
@@ -15,17 +15,9 @@ public class ModeloVeiculo {
         return this;
     }
 
-    public int getQuantiadePortas() {
-        return quantiadePortas;
-    }
-
     public ModeloVeiculo setQuantiadePortas(int quantiadePortas) {
         this.quantiadePortas = quantiadePortas;
         return this;
-    }
-
-    public int getNumeroDeMarchas() {
-        return numeroDeMarchas;
     }
 
     public ModeloVeiculo setNumeroDeMarchas(int numeroDeMarchas) {
@@ -33,12 +25,20 @@ public class ModeloVeiculo {
         return this;
     }
 
-    public int getCilindradas() {
-        return cilindradas;
-    }
-
     public ModeloVeiculo setCilindradas(int cilindradas) {
         this.cilindradas = cilindradas;
         return this;
+    }
+
+    public int getQuantiadePortas() {
+        return quantiadePortas;
+    }
+
+    public int getNumeroDeMarchas() {
+        return numeroDeMarchas;
+    }
+
+    public int getCilindradas() {
+        return cilindradas;
     }
 }

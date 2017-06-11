@@ -5,5 +5,12 @@ public enum Marca {
     FIAT,
     WOLKSVAGEM,
     BWM,
-    KIA
+    KIA;
+
+
+    public static void listOnConsole(){
+        for (int i = 0; i < values().length; i++) {
+            System.out.println(i + " - " + values()[i].name());
+        }
+    }
 }
