@@ -1,20 +1,19 @@
 package main;
 
-import java.io.IOException;
-import java.util.*;
-
-import main.veiculos.comercio.VeiculosDisponiveis;
 import main.veiculos.ModeloVeiculo;
 import main.veiculos.Veiculo;
+import main.veiculos.comercio.VeiculosDisponiveis;
 
+import java.util.*;
+
+/**
+ * Singleton do sistema, onde é feito o gerenciamento dos veiculos
+ */
 public class Sistema {
-
-    private static Map<String, Veiculo> vehiclesOnStore = new HashMap<>();
+    private static Map<String, Veiculo> vehiclesOnStore = new LinkedHashMap<>();
     private static List<ModeloVeiculo> vehiclesModel = new ArrayList<>();
 
-    //So acessos estaticos ao sistema. (poderia ser tambem ou um singleton)
-    private Sistema() {
-    }
+    private Sistema() {}
 
 
     /**
@@ -35,17 +34,25 @@ public class Sistema {
         return novoModelo;
     }
 
+    /**
+     * Lista os modelos de veiculos com contador para o usuario
+     */
     public static void listModelsToUser() {
         if (vehiclesModel.isEmpty()) {
             return;
         }
 
-        vehiclesModel.forEach(modeloVeiculo -> {
-            showModelToUser(modeloVeiculo);
-            System.out.println("===================================");
-        });
+        int count = 1;
+        for (ModeloVeiculo aVehiclesModel : vehiclesModel) {
+            System.out.print(count);
+            showModelToUser(aVehiclesModel);
+
+        }
     }
 
+    /**
+     * Mostra um modelo para o usuario
+     */
     public static void showModelToUser(ModeloVeiculo modelo) {
         String message = String.format(
                 "Modelo %s, com %d portas, %d marchas e %d cilindradas",
@@ -57,14 +64,15 @@ public class Sistema {
         System.out.println(message);
     }
 
+    /** Lista os veiculos para o usuario com contador*/
     public static void listVehiclesToUser() {
         if (vehiclesOnStore.isEmpty()) {
             return;
         }
 
-        for (Map.Entry<String, Veiculo> entry : vehiclesOnStore.entrySet()) {
-            showVehicleToUser(entry.getValue());
-            System.out.println("===================================");
+//        TODO
+        for (int i=0; i < vehiclesOnStore.size(); i++) {
+            //showVehicleToUser(vehiclesOnStore);
         }
     }
 
@@ -143,6 +151,16 @@ public class Sistema {
     }
 
     public static void sellVehicle() {
+        System.out.print("Informe a placa do veiculo:");
+        String str = Utils.getReader().next();
+
+        try{
+
+        } catch (Exception e){
+
+        }
+
+        vehiclesOnStore.get("");
 
     }
 }
