@@ -70,15 +70,27 @@ public class Sistema {
 		{
 			return;
         }
+		Object[] vehicles = vehiclesModel.values().toArray();
 		
-		for (Map.Entry<Integer, ModeloVeiculo> entry : vehiclesModel.entrySet())
+		for (int i = 0; i < vehicles.length; i++)
 		{
-			showModelToUser(entry.getValue());
-			System.out.println("===================================");
+			showModelToUser((ModeloVeiculo) vehicles[i], i + 1);
 		}
-    }
+		System.out.println("===================================");
+	}
 	
 	public static void showModelToUser(ModeloVeiculo modelo)
+	{
+		showModelToUser(modelo, null);
+	}
+	
+	/**
+	 * Mostra um modelo para o usuario
+	 *
+	 * @param count Numero para mostrar na frente, opcional
+	 * @param modelo Modelo para pegar as informações
+	 */
+	public static void showModelToUser(ModeloVeiculo modelo, Integer count)
 	{
 		String message = String.format(
                 "Modelo %s, com %d portas, %d marchas e %d cilindradas",
@@ -86,8 +98,15 @@ public class Sistema {
                 modelo.getQuantiadePortas(),
                 modelo.getNumeroDeMarchas(),
                 modelo.getCilindradas()
-        );
-		System.out.println(message);
+		);
+		if (count != null)
+		{
+			System.out.println(count + " - " + message);
+		}
+		else
+		{
+			System.out.println(message);
+		}
 	}
 	
 	public static void listVehiclesToUser()
@@ -156,7 +175,7 @@ public class Sistema {
 	private static int assureChoice(String invalidMessage, int minChoice, int maxChoice,
 		int actualChoice)
 	{
-		while (actualChoice < minChoice && actualChoice > maxChoice)
+		while (actualChoice < minChoice || actualChoice > maxChoice)
 		{
 			System.out.println(invalidMessage);
 			actualChoice = getReader().nextInt();
@@ -188,7 +207,7 @@ public class Sistema {
         int count = -1;
 		while (count++ < avaliableOptions.length - 1)
 		{
-			System.out.println(count + 1 + " - " + VeiculosDisponiveis.values()[count]);
+			System.out.println(count + 1 + " - " + avaliableOptions[count]);
 		}
 		
 		choice = getReader().nextInt();

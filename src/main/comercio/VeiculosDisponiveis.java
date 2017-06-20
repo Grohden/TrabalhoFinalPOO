@@ -6,7 +6,7 @@ import main.veiculos.Onibus;
 import main.veiculos.Veiculo;
 
 public enum VeiculosDisponiveis {
-    CARRO(Carro.class),MOTO(Moto.class),ONIBUS(Onibus.class);
+    CARRO(Carro.class), MOTO(Moto.class), ONIBUS(Onibus.class);
 
     private Class clazz;
 
