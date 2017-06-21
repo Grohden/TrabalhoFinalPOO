@@ -24,6 +24,19 @@ public class Utils {
 
         }
     }
+	
+	public static void waitForAnyKey()
+	{
+		try
+		{
+			System.out.print("Aperte qualquer tecla para continuar...");
+			System.in.read();
+		}
+		catch (IOException ignored)
+		{
+		
+		}
+	}
 
     /**
      * Garante que a escolha do usuario vai estar entre um range de numeros

@@ -91,7 +91,16 @@ public class Sistema {
 	 */
 	public static void listVehiclesOnStoreToUser()
 	{
-		listVehiclesToUser(vehiclesOnStore);
+		if (vehiclesOnStore.size() < 1)
+		{
+			System.out.println("Não há veiculos na loja.");
+		}
+		else
+		{
+			listVehiclesToUser(vehiclesOnStore);
+		}
+		
+		Utils.waitForAnyKey();
 	}
 	
 	/**

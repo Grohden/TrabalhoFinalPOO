@@ -33,7 +33,7 @@ public abstract class VeiculoAdicionavelPorConsole {
 			1876,
 			3000
 		);
-		year.set(Calendar.YEAR, chosenYear );
+		year.set(Calendar.YEAR, chosenYear);
 		return year;
 	}
 	
