@@ -12,14 +12,6 @@ public class Carro extends Veiculo
     {
     }
     
-    /**
-     * retorna o valor do carro
-     */
-    @Override
-    public long getValor() {
-        return getValorDoVeiculo();
-    }
-
     @Override
     public boolean estaVendido() {
         return vendido;

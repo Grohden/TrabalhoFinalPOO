@@ -5,15 +5,6 @@ public class Onibus extends Veiculo
 	
 	private boolean vendido = false;
 	
-	/**
-	 * retorna o valor do carro
-	 */
-	@Override
-	public long getValor()
-	{
-		return getValorDoVeiculo();
-	}
-	
 	@Override
 	public boolean estaVendido()
 	{

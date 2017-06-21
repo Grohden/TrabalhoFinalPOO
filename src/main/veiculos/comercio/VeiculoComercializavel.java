@@ -7,7 +7,7 @@ public abstract class VeiculoComercializavel extends VeiculoAdicionavelPorConsol
 {
 
     /** Deve retornar o valor do veiculo */
-    public abstract long getValor();
+    public abstract long getValorDoVeiculo();
 
     /** Deve retornar se o veiculo esta vendido*/
     public abstract boolean estaVendido();
