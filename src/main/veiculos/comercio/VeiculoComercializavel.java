@@ -1,14 +1,17 @@
 package main.veiculos.comercio;
 
+import main.veiculos.VeiculoAdicionavelPorConsole;
+
 /** Interface de veiculos comercializaveis*/
-public interface VeiculoComercializavel {
+public abstract class VeiculoComercializavel extends VeiculoAdicionavelPorConsole
+{
 
     /** Deve retornar o valor do veiculo */
-    long getValor();
+    public abstract long getValor();
 
     /** Deve retornar se o veiculo esta vendido*/
-    boolean estaVendido();
+    public abstract boolean estaVendido();
 
     /** Deve setar o estado de vendido para true */
-    void vender();
+    public abstract void vender();
 }

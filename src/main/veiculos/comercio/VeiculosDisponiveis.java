@@ -5,7 +5,9 @@ import main.veiculos.Moto;
 import main.veiculos.Onibus;
 import main.veiculos.Veiculo;
 
-/** Enum de veiculos disponiveis*/
+/**
+ * Enum de veiculos disponiveis para a venda
+ */
 public enum VeiculosDisponiveis {
     CARRO(Carro.class), MOTO(Moto.class), ONIBUS(Onibus.class);
 

@@ -48,7 +48,7 @@ public class LojaDeVeiculos {
 					Sistema.sellVehicle();
 					break;
 				case 4:
-					Sistema.listVehiclesToUser();
+					Sistema.listVehiclesOnStoreToUser();
 					break;
 			}
 			

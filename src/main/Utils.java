@@ -35,9 +35,10 @@ public class Utils {
      */
     public static int assureChoice(String invalidMessage, int minChoice, int maxChoice) {
         int actualChoice = getReader().nextInt();
-        while (actualChoice < minChoice && actualChoice > maxChoice) {
-            System.out.println(invalidMessage);
-            actualChoice = getReader().nextInt();
+	    while (actualChoice < minChoice || actualChoice > maxChoice)
+	    {
+		    System.out.print(invalidMessage);
+		    actualChoice = getReader().nextInt();
         }
 
         return actualChoice;

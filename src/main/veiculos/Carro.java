@@ -1,29 +1,20 @@
 package main.veiculos;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import main.veiculos.comercio.VeiculoComercializavel;
-
 /**
  * Created by gabri on 03/06/2017.
+ * Classe de um carro
  */
-public class Carro extends Veiculo implements VeiculoComercializavel {
+public class Carro extends Veiculo
+{
     private boolean vendido = false;
-
-    public Carro(){
-        Calendar ano = new GregorianCalendar(2001,1,1);
-
-        ModeloVeiculo modelo = new ModeloVeiculo()
-                .setCilindradas(200)
-                .setNumeroDeMarchas(6)
-                .setQuantiadePortas(4);
-
-        this    .setAnoFabricacao(ano)
-	        .setNumeroPlaca("BXB2")
-	        .setMarca(Marca.BWM)
-	        .setModelo(modelo);
+    
+    public Carro()
+    {
     }
-
+    
+    /**
+     * retorna o valor do carro
+     */
     @Override
     public long getValor() {
         return getValorDoVeiculo();

@@ -1,9 +1,7 @@
 package main.veiculos;
 
-import main.Sistema;
-
 import java.util.Calendar;
-import java.util.Scanner;
+import main.veiculos.comercio.VeiculoComercializavel;
 
 /**
  * Classe base para veiculos
@@ -11,7 +9,8 @@ import java.util.Scanner;
  * @version 0.2
  * @since 10/06/2017
  */
-public abstract class Veiculo extends VeiculoAdicionavelPorConsole {
+public abstract class Veiculo extends VeiculoComercializavel
+{
     private Calendar anoFabricacao;
     private String numeroPlaca;
     private long valorDoVeiculo;

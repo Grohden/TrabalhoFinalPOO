@@ -10,7 +10,7 @@ public enum Marca {
 
     public static void listOnConsole(){
         for (int i = 0; i < values().length; i++) {
-            System.out.println(i + " - " + values()[i].name());
+            System.out.println((i + 1) + " - " + values()[i].name());
         }
     }
 }
