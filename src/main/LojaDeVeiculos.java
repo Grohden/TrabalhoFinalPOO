@@ -78,6 +78,8 @@ public class LojaDeVeiculos {
      * Menu dos filtros
      */
     public static void filterMenu() {
+        Utils.clearConsole();
+
         System.out.println("1 - Mostrar por ano");
         System.out.println("2 - Mostrar por marca");
         System.out.println("3 - Mostrar por quilometragem");
@@ -89,34 +91,35 @@ public class LojaDeVeiculos {
         Map<String, Veiculo> filtrados = null;
         int choice = Utils.assureChoice(1, 5);
 
-        while (choice != 5) {
-            switch (choice) {
-                case 1:
-                    System.out.print("Informe o ano para o filtro: ");
-                    int chosenYear = Utils.assureChoice(1, Integer.MAX_VALUE);
-                    filtrados = Sistema.filterByYear(chosenYear);
-                    break;
-                case 2:
-                    System.out.println("Informe a marca do veiculo para o filtro: ");
-                    Marca.listOnConsole();
-                    filtrados = Sistema.filterByMarca(Marca.values()[Utils.assureChoice(1, Marca.values().length) - 1]);
-                    break;
-                case 3:
-                    System.out.print("Informe a quilometragem do veiculo para o filtro: ");
-                    filtrados = Sistema.filterByQuilometragem(Utils.getReader().nextInt());
-                    break;
-                case 4:
-                    filtrados = Sistema.filterNotSoldVehicles();
-                    break;
-            }
-
-            if (filtrados != null) {
-                Sistema.listVehiclesToUser(filtrados);
-            } else {
-                System.out.println("Não foram encontrados veiculos pelo criterio do filtro");
-            }
-
-            Utils.clearConsole();
+        switch (choice) {
+            case 1:
+                System.out.print("Informe o ano para o filtro: ");
+                int chosenYear = Utils.assureChoice(1, Integer.MAX_VALUE);
+                filtrados = Sistema.filterByYear(chosenYear);
+                break;
+            case 2:
+                System.out.println("Informe a marca do veiculo para o filtro: ");
+                Marca.listOnConsole();
+                filtrados = Sistema.filterByMarca(Marca.values()[Utils.assureChoice(1, Marca.values().length) - 1]);
+                break;
+            case 3:
+                System.out.print("Informe a quilometragem do veiculo para o filtro: ");
+                filtrados = Sistema.filterByQuilometragem(Utils.getReader().nextInt());
+                break;
+            case 4:
+                filtrados = Sistema.filterNotSoldVehicles();
+                break;
+            case 5:
+                return;
         }
+
+        if (filtrados != null) {
+            Sistema.listVehiclesToUser(filtrados);
+        } else {
+            System.out.println("Não foram encontrados veiculos pelo criterio do filtro");
+            Utils.waitForAnyKey();
+        }
+
+        filterMenu();
     }
 }
