@@ -1,7 +1,8 @@
 package main.veiculos;
 
 import java.util.Calendar;
-import main.veiculos.comercio.VeiculoComercializavel;
+
+import main.veiculos.comercio.ItemDeVenda;
 
 /**
  * Classe base para veiculos
@@ -9,7 +10,7 @@ import main.veiculos.comercio.VeiculoComercializavel;
  * @version 0.2
  * @since 10/06/2017
  */
-public abstract class Veiculo extends VeiculoComercializavel
+public abstract class Veiculo extends ItemDeVenda
 {
     private Calendar anoFabricacao;
     private String numeroPlaca;

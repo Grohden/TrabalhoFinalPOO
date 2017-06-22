@@ -3,7 +3,6 @@ package main;
 import main.veiculos.Veiculo;
 import main.veiculos.comercio.VeiculosDisponiveis;
 
-import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;

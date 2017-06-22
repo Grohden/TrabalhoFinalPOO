@@ -5,7 +5,7 @@ import main.veiculos.VeiculoAdicionavelPorConsole;
 /**
  * Interface de veiculos comercializaveis
  */
-public abstract class VeiculoComercializavel extends VeiculoAdicionavelPorConsole
+public abstract class ItemDeVenda extends VeiculoAdicionavelPorConsole
 {
 
     /** Deve retornar o valor do veiculo */
