@@ -2,12 +2,8 @@ package main;
 
 import main.veiculos.Marca;
 import main.veiculos.Veiculo;
-import main.veiculos.VeiculoAdicionavelPorConsole;
 
-import java.util.Calendar;
 import java.util.Map;
-
-import static main.LojaDeVeiculos.filterMenu;
 
 /**
  * Classe de entrada da aplicacao, com menu
