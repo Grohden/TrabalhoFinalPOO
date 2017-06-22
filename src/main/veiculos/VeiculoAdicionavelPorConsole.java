@@ -16,7 +16,6 @@ public abstract class VeiculoAdicionavelPorConsole {
 
 	/**
 	 * Requisita por console um numero de placa
-	 * Sendo o ano valido se estiver entre 1800 e 3000
 	 *
 	 * @return Numero da placa
 	 */
@@ -24,11 +23,7 @@ public abstract class VeiculoAdicionavelPorConsole {
 	{
 		System.out.print("Informe o ano de fabricação do veiculo: ");
 		Calendar year = Calendar.getInstance();
-		int chosenYear = Utils.assureChoice(
-			"O ano minimo para fabricação é 1800, e o maximo é 3000, digite novamente.",
-			1876,
-			3000
-		);
+		int chosenYear = Utils.assureChoice(1, Integer.MAX_VALUE);
 		year.set(Calendar.YEAR, chosenYear);
 		return year;
 	}
