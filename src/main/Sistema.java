@@ -126,10 +126,7 @@ public class Sistema {
 
         //showNotSoldVehicles();
 
-        System.out.print("Informe a placa do veiculo:");
-		String str = Utils.getReader().next();
-
-        Veiculo veiculo = vehiclesOnStore.get(str);
+        Veiculo veiculo = getVehicleByPlate();
 
         if (veiculo != null) {
             veiculo.vender();
@@ -139,6 +136,14 @@ public class Sistema {
         }
 
         Utils.waitForAnyKey();
+    }
+
+    /**
+     * Pega um veiculo por placa (pode retornar null!)
+     */
+    public static Veiculo getVehicleByPlate() {
+        System.out.print("Informe a placa do veiculo:");
+        return vehiclesOnStore.get(Utils.getReader().next());
     }
 
     /**
@@ -171,4 +176,19 @@ public class Sistema {
             showVehicleToUser((Veiculo) notSoldVehicles[i], i + 1);
         }
 	}
+
+    /**
+     * Mostra os detalhes de um veiculo pegando uma placa informada por usuario
+     */
+    public static void showVehicleDetails() {
+        Veiculo v = getVehicleByPlate();
+
+        if (v != null) {
+            System.out.println(v.toString());
+        } else {
+            System.out.println("A placa informada não existe no sistema.");
+        }
+
+        Utils.waitForAnyKey();
+    }
 }

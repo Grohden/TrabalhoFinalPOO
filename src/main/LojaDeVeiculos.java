@@ -25,10 +25,10 @@ public class LojaDeVeiculos {
 	public static int getUserChoiceForMainMenu() {
 		//Podia usar um enum pra deixar mais dinamico
 		System.out.println("1 - Adicionar veiculos");
-		System.out.println("2 - Mostrar Todos os Veiculos");
-		System.out.println("3 - Mostrar Veiculos Vendidos");
-		System.out.println("4 - Vender Veiculo");
-		System.out.println("5 - Sair");
+        System.out.println("2 - Mostrar detalhes de um veiculo");
+        System.out.println("3 - Mostrar veiculos não vendidos");
+        System.out.println("4 - Vender veiculo");
+        System.out.println("5 - Sair");
 
 		System.out.print("Escolha uma opcao: ");
 
@@ -52,8 +52,8 @@ public class LojaDeVeiculos {
 					Sistema.addNewVehicle();
 					break;
 				case 2:
-					Sistema.listVehiclesOnStoreToUser();
-					break;
+                    Sistema.showVehicleDetails();
+                    break;
 				case 3:
 					Sistema.showNotSoldVehicles();
 					break;
