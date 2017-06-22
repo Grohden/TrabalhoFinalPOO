@@ -6,7 +6,8 @@ import main.veiculos.Onibus;
 import main.veiculos.Veiculo;
 
 /**
- * Enum de veiculos disponiveis para a venda
+ * Enum que controla a as classes de veiculos disponiveis para a venda na loja
+ * @author Gabriel Rohden
  */
 public enum VeiculosDisponiveis {
     CARRO(Carro.class), MOTO(Moto.class), ONIBUS(Onibus.class);

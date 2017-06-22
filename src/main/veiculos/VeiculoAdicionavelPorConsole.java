@@ -14,10 +14,6 @@ public abstract class VeiculoAdicionavelPorConsole {
         return new Scanner(System.in);
     }
 
-    public ModeloVeiculo getByConsoleModelo(){
-        return null;
-    }
-	
 	/**
 	 * Requisita por console um numero de placa
 	 * Sendo o ano valido se estiver entre 1800 e 3000
@@ -77,4 +73,34 @@ public abstract class VeiculoAdicionavelPorConsole {
         return getReader().nextInt();
     }
 
+    /**
+     * Requisita por console uma quantidade de marchas
+     *
+     * @return Numero de marchas informadas
+     */
+    public int getByConsoleNumeroDeMarchas() {
+        System.out.print("Informe quantas marchas o veiculo tem: ");
+        return Utils.getReader().nextInt();
+    }
+
+    /**
+     * Requisita por console uma quantidade de cilindradas
+     *
+     * @return Quantidade de cilindradas informada
+     */
+    public int getByConsoleCilindradas() {
+        System.out.print("Informe quantidade de cilindradas do veiculo: ");
+        return Utils.getReader().nextInt();
+
+    }
+
+    /**
+     * Requisita por console uma quantidade de portas
+     *
+     * @return Quantidade de portas informada
+     */
+    public int getByConsoleQuantiadePortas() {
+        System.out.print("Informe quantas portas o modelo vai ter: ");
+        return Utils.getReader().nextInt();
+    }
 }

@@ -14,26 +14,42 @@ public abstract class Veiculo extends VeiculoComercializavel
     private Calendar anoFabricacao;
     private String numeroPlaca;
     private long valorDoVeiculo;
-    private long quilometragem = 0;
+    private long quilometragem;
     private Marca marca;
-    private ModeloVeiculo modelo;
+    private int quantiadePortas;
+    private int numeroDeMarchas;
+    private int cilindradas;
 
     /**
-     * Instancia da classe base para veiculos
+     * Seta a quantidade de portas do veiculo
+     *
+     * @param quantiadePortas quantidade de portas do veiculo.
+     * @return a instancia do objeto para 'chain sets'
      */
-    public Veiculo() {
-
+    public Veiculo setQuantiadePortas(int quantiadePortas) {
+        this.quantiadePortas = quantiadePortas;
+        return this;
     }
 
     /**
-     * Seta o modelo do veiculo
+     * Seta a quantidade de marchas do veiculo
      *
-     * @param modelo modelo do veiculo
+     * @param numeroDeMarchas numero de marchas do veiculo.
      * @return a instancia do objeto para 'chain sets'
-     * @see main.veiculos.ModeloVeiculo
      */
-    public Veiculo setModelo(ModeloVeiculo modelo) {
-        this.modelo = modelo;
+    public Veiculo setNumeroDeMarchas(int numeroDeMarchas) {
+        this.numeroDeMarchas = numeroDeMarchas;
+        return this;
+    }
+
+    /**
+     * Seta a quantidade de cilindradas do veiculo
+     *
+     * @param cilindradas cilindradas do veiculo.
+     * @return a instancia do objeto para 'chain sets'
+     */
+    public Veiculo setCilindradas(int cilindradas) {
+        this.cilindradas = cilindradas;
         return this;
     }
 
@@ -94,14 +110,6 @@ public abstract class Veiculo extends VeiculoComercializavel
     }
 
     /**
-     * @return o modelo do veiculo
-     * @see main.veiculos.ModeloVeiculo
-     */
-    public ModeloVeiculo getModelo() {
-        return modelo;
-    }
-
-    /**
      * @return o ano de fabricacao do veiculo
      */
     public Calendar getAnoFabricacao() {
@@ -136,4 +144,46 @@ public abstract class Veiculo extends VeiculoComercializavel
     public long getValorDoVeiculo() {
         return valorDoVeiculo;
     }
+
+    /**
+     * @return A quantidade de portas do veiculo
+     */
+    public int getQuantiadePortas() {
+        return quantiadePortas;
+    }
+
+    /**
+     * @return O numero de marchas do veiculo
+     */
+    public int getNumeroDeMarchas() {
+        return numeroDeMarchas;
+    }
+
+    /**
+     * @return A quantidade de cilindradas do veiculo
+     */
+    public int getCilindradas() {
+        return cilindradas;
+    }
+
+    /**
+     * Formato legivel do veiculo, com as informações do mesmo
+     */
+    @Override
+    public String toString() {
+        return String.format(
+                "%s - Ano %d, placa %s, valor %d, quilometragem %d, marca %s, %d portas, %d marchas e %d cilindradas",
+                this.getClass().getSimpleName(),
+                this.anoFabricacao.get(Calendar.YEAR),
+                this.numeroPlaca,
+                this.valorDoVeiculo,
+                this.quilometragem,
+                this.marca.toString(),
+                this.quantiadePortas,
+                this.numeroDeMarchas,
+                this.cilindradas
+        );
+    }
+
+
 }

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Created by gabri on 10/06/2017.
+ * Classe de utils da loja de veiculos
+ * @author Gabriel Rohden
+ * @since 1.0
  */
 public class Utils {
 
@@ -12,7 +14,9 @@ public class Utils {
         return new Scanner(System.in);
     }
 
-
+    /**
+     * Limpa o console no windows ou mac (não funciona em certos consoles integrados em IDE'S)
+     */
     public static void clearConsole() {
         //Clears Screen in java
         try {
@@ -24,8 +28,11 @@ public class Utils {
 
         }
     }
-	
-	public static void waitForAnyKey()
+
+    /**
+     * Espera uma key aleatoria do usuario
+     */
+    public static void waitForAnyKey()
 	{
 		try
 		{

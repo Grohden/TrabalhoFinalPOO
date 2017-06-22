@@ -2,7 +2,9 @@ package main.veiculos.comercio;
 
 import main.veiculos.VeiculoAdicionavelPorConsole;
 
-/** Interface de veiculos comercializaveis*/
+/**
+ * Interface de veiculos comercializaveis
+ */
 public abstract class VeiculoComercializavel extends VeiculoAdicionavelPorConsole
 {
 

@@ -1,8 +1,10 @@
 package main.veiculos;
 
 /**
- * Created by gabri on 03/06/2017.
  * Classe de um carro
+ * @author Gabriel Rohden
+ * @version 1.0
+ * @since 1.0
  */
 public class Carro extends Veiculo
 {
